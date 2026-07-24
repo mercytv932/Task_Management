@@ -1,11 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task Management</title>
-</head>
-<body>
-   
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Management</title>
+  </head>
+  <body>
+    <form id="form">
+      <label for="task-input">Task Name</label>
+      <input type="text" id="task-input" placeholder="Enter a task..." />
+      <label for="category">Category</label>
+      <select id="category">
+        <option value="">-- Please Select an Option --</option>
+        <option value="work">Work</option>
+        <option value="school">School</option>
+        <option value="personal">Personal</option>
+        <option value="health">Health</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="due-date">Due Date:</label>
+      <input type="date" id="due-date" name="due-date" />
+
+      <label for="task-status">Initial Status</label>
+      <select id="task-status">
+        <option value="progress">In progress</option>
+        <option value="completed">Completed</option>
+      </select>
+
+      <button type="submit" class="add-task">Add Task</button>
+    </form>
+
+    <section class="filter-section">
+      <h3>Filters</h3>
+
+      <label for="status-filter">Filter Status</label>
+      <select id="status-filter">
+        <option value="all">All</option>
+        <option value="progress">In progress</option>
+        <option value="completed">Completed</option>
+        <option value="overdue">Overdue</option>
+      </select>
+
+      <label for="category-filter">Filter by Category</label>
+      <select id="category-filter">
+        <option value="all">All</option>
+        <option value="work">Work</option>
+        <option value="school">School</option>
+        <option value="personal">Personal</option>
+        <option value="health">Health</option>
+        <option value="other">Other</option>
+      </select>
+    </section>
+
+    <section class="task-list-section">
+      <h2>Your Tasks</h2>
+      <ul class="display-tasks"></ul>
+    </section>
+    <script></script>
+  </body>
 </html>
