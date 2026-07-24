@@ -57,6 +57,22 @@
       <h2>Your Tasks</h2>
       <ul class="display-tasks"></ul>
     </section>
-    <script></script>
+    <script>
+      const form = document.getElementById("form");
+      const taskInput = document.getElementById("task-input");
+      const category = document.getElementById("category");
+      const dueDate = document.getElementById("due-date");
+      const taskStatus = document.getElementById("task-status");
+      const statusFilter = document.getElementById("status-filter");
+      const categoryFilter = document.getElementById("category-filter");
+
+      const displayTasks = document.querySelector(".display-tasks");
+
+      const tasks = [];
+
+      form.addEventListener("click", () => {
+        event.preventDefault();
+      });
+    </script>
   </body>
 </html>
