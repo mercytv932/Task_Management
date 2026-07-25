@@ -70,8 +70,18 @@
 
       const tasks = [];
 
-      form.addEventListener("click", () => {
+      form.addEventListener("click", (event) => {
         event.preventDefault();
+
+        const task = {
+          name: taskInput.value,
+          category: category.value,
+          dueDate: dueDate.value,
+          status: taskStatus.value,
+        };
+
+        tasks.push(task);
+        console.log(tasks);
       });
     </script>
   </body>
