@@ -100,7 +100,12 @@
 
         tasks.forEach((task) => {
           const newTask = document.createElement("li");
-          newTask.textContent = task.name;
+          newTask.innerHTML = `
+          <strong> ${task.name}</strong>
+          <p>Category: ${task.category}</p>
+          <p>Due Date: ${task.dueDate}</p>
+          <p>Status: ${task.status}</p>
+          `;
 
           displayTasks.appendChild(newTask);
         });
