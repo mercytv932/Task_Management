@@ -106,7 +106,15 @@
           <p>Due Date: ${task.dueDate}</p>
           <p>Status: ${task.status}</p>
           `;
-
+          if (task.status === "progress") {
+            const completeBtn = document.createElement("button");
+            completeBtn.textContent = "Mark Complete";
+            completeBtn.addEventListener("click", () => {
+              task.status = "completed";
+              tasksDisplay();
+            });
+            newTask.appendChild(completeBtn);
+          }
           displayTasks.appendChild(newTask);
         });
       }
