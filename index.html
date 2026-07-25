@@ -70,8 +70,17 @@
 
       const tasks = [];
 
-      form.addEventListener("click", (event) => {
+      form.addEventListener("submit", (event) => {
         event.preventDefault();
+
+        if (
+          taskInput.value.trim() === "" ||
+          category.value === "" ||
+          dueDate.value == ""
+        ) {
+          alert("Please fill all the fields");
+          return;
+        }
 
         const task = {
           name: taskInput.value,
@@ -82,7 +91,20 @@
 
         tasks.push(task);
         console.log(tasks);
+        tasksDisplay();
+        form.reset();
       });
+
+      function tasksDisplay() {
+        displayTasks.innerHTML = "";
+
+        tasks.forEach((task) => {
+          const newTask = document.createElement("li");
+          newTask.textContent = task.name;
+
+          displayTasks.appendChild(newTask);
+        });
+      }
     </script>
   </body>
 </html>
