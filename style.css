@@ -1,0 +1,136 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+  color: #1f2937;
+}
+
+.page-header {
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #161616;
+}
+
+.page-header p {
+  margin-top: 8px;
+  color: #6b7289;
+  font-size: 1rem;
+}
+
+.task-app {
+  width: min(1110px, 92%);
+  margin: 40px auto;
+}
+
+.task-form-section,
+.filters-section,
+.tasks-section {
+  background-color: white;
+  padding: 24px;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  border: 1px solid #dbe1e8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.task-form-section h1,
+.filters-section h2,
+.tasks-section h2 {
+  margin-top: 0;
+  color: #161616;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+form label {
+  font-weight: 600;
+}
+
+input,
+select,
+button {
+  padding: 10px 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+}
+
+input,
+select {
+  border: 1px solid #cbd5e1;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #1769ff;
+  box-shadow: 0 0 0 3px rgab(23, 105, 255, 0.15);
+}
+
+.button-group {
+  justify-content: flex-end;
+}
+button {
+  border: none;
+  background-color: #1769ff;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+  height: 44px;
+  min-width: 140px;
+}
+
+button:hover {
+  background-color: #0f54d9;
+  transform: translateY((-1px));
+}
+
+.filters-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+#displayTasks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#displayTasks li {
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid #dbe1e8;
+  border-left: 5px solid #1769ff;
+  border-radius: 10px;
+  background-color: white;
+  transition: 0.2s ease;
+}
+
+#displayTasks li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba (0, 0, 0, 0.08);
+}
+
+#displayTasks p {
+  margin: 8px 0;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}

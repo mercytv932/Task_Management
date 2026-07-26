@@ -1,182 +1,223 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Management</title>
   </head>
   <body>
-    <form id="form">
-      <label for="task-input">Task Name</label>
-      <input type="text" id="task-input" placeholder="Enter a task..." />
-      <label for="category">Category</label>
-      <select id="category">
-        <option value="">-- Please Select an Option --</option>
-        <option value="work">Work</option>
-        <option value="school">School</option>
-        <option value="personal">Personal</option>
-        <option value="health">Health</option>
-        <option value="other">Other</option>
-      </select>
+    <nav
+      class="flex py-2 px-4 md:px-8 bg-white border-b border-slate-300 dark:border-neutral-700 dark:bg-neutral-900 min-h-[68px] relative z-20"
+      aria-label="Main navigation"
+    >
+      <div
+        class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4 w-full"
+      >
+        <a
+          href="#"
+          class="min-w-9 inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+        >
+          <span class="sr-only">Your Company</span>
+          <img
+            src="https://readymadeui.com/logo-alt.svg"
+            alt="readymadeui logo"
+            class="h-9 w-auto"
+          />
+        </a>
 
-      <label for="due-date">Due Date:</label>
-      <input type="date" id="due-date" name="due-date" />
+        <div
+          id="collapseMenu"
+          tabindex="-1"
+          class="hidden lg:block max-lg:bg-white dark:max-lg:bg-neutral-900 max-lg:border-l max-lg:border-slate-300 dark:max-lg:border-neutral-700 max-lg:w-1/2 max-lg:fixed max-lg:top-0 max-lg:right-0 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto max-sm:w-full z-50 outline-none"
+        >
+          <div
+            class="py-2 px-4 flex justify-between items-center border-b border-slate-300 sticky top-0 bg-white dark:border-neutral-700 dark:bg-neutral-900 lg:hidden max-lg:min-h-[68px]"
+          >
+            <a
+              href="#"
+              class="inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+            >
+              <span class="sr-only">Your Company</span>
+              <img
+                src="https://readymadeui.com/logo-alt.svg"
+                alt="readymadeui logo dialog"
+                class="h-9 w-auto"
+              />
+            </a>
+            <button
+              type="button"
+              aria-controls="collapseMenu"
+              id="toggleClose"
+              class="cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+            >
+              <span class="sr-only">Close main menu</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-4 fill-slate-900 dark:fill-slate-50"
+                aria-hidden="true"
+                viewBox="0 0 329.269 329"
+              >
+                <path
+                  d="M194.8 164.77 323.013 36.555c8.343-8.34 8.343-21.825 0-30.164-8.34-8.34-21.825-8.34-30.164 0L164.633 134.605 36.422 6.391c-8.344-8.34-21.824-8.34-30.164 0-8.344 8.34-8.344 21.824 0 30.164l128.21 128.215L6.259 292.984c-8.344 8.34-8.344 21.825 0 30.164a21.27 21.27 0 0 0 15.082 6.25c5.46 0 10.922-2.09 15.082-6.25l128.21-128.214 128.216 128.214a21.27 21.27 0 0 0 15.082 6.25c5.46 0 10.922-2.09 15.082-6.25 8.343-8.34 8.343-21.824 0-30.164zm0 0"
+                  data-original="#000000"
+                />
+              </svg>
+            </button>
+          </div>
 
-      <label for="task-status">Initial Status</label>
-      <select id="task-status">
-        <option value="progress">In progress</option>
-        <option value="completed">Completed</option>
-      </select>
+          <ul
+            class="flex flex-col gap-8 font-semibold text-sm text-slate-900 dark:text-slate-50 lg:flex-row max-lg:p-6"
+          >
+            <li>
+              <a
+                href="#"
+                class="hover:text-blue-700 dark:hover:text-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+                aria-current="page"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hover:text-blue-700 dark:hover:text-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+                >Features</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hover:text-blue-700 dark:hover:text-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+                >Blog</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hover:text-blue-700 dark:hover:text-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hover:text-blue-700 dark:hover:text-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
 
-      <button type="submit" class="add-task">Add Task</button>
-    </form>
+        <div class="flex items-center gap-4">
+          <a
+            href="#"
+            class="text-slate-900 text-sm font-semibold hover:text-blue-700 dark:text-slate-50 dark:hover:text-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+            >Log in</a
+          >
+          <a
+            href="#"
+            class="py-2 px-3.5 text-sm rounded-md font-semibold cursor-pointer text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+            >Sign up</a
+          >
 
-    <section class="filter-section">
-      <h3>Filters</h3>
+          <button
+            type="button"
+            aria-controls="collapseMenu"
+            aria-expanded="false"
+            aria-haspopup="true"
+            id="toggleOpen"
+            class="cursor-pointer lg:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg
+              class="size-7 fill-slate-900 dark:fill-slate-50"
+              aria-hidden="true"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
 
-      <label for="status-filter">Filter Status</label>
-      <select id="status-filter">
-        <option value="all">All</option>
-        <option value="progress">In progress</option>
-        <option value="completed">Completed</option>
-        <option value="overdue">Overdue</option>
-      </select>
+    <main class="task-app">
+      <header class="page-header">
+        <h1>Task Manager</h1>
+        <p>Organize and Keep track of your daily tasks</p>
+      </header>
 
-      <label for="category-filter">Filter by Category</label>
-      <select id="category-filter">
-        <option value="all">All</option>
-        <option value="work">Work</option>
-        <option value="school">School</option>
-        <option value="personal">Personal</option>
-        <option value="health">Health</option>
-        <option value="other">Other</option>
-      </select>
-    </section>
+      <section class="task-form-section">
+        <form id="form">
+          <div class="form-group">
+            <label for="task-input">Task Name</label>
+            <input type="text" id="task-input" placeholder="Enter a task..." />
+          </div>
 
-    <section class="task-list-section">
-      <h2>Your Tasks</h2>
-      <ul class="display-tasks"></ul>
-    </section>
-    <script>
-      const form = document.getElementById("form");
-      const taskInput = document.getElementById("task-input");
-      const category = document.getElementById("category");
-      const dueDate = document.getElementById("due-date");
-      const taskStatus = document.getElementById("task-status");
-      const statusFilter = document.getElementById("status-filter");
-      const categoryFilter = document.getElementById("category-filter");
+          <div class="form-group">
+            <label for="category">Category</label>
+            <select id="category">
+              <option value="">-- Please Select an Option --</option>
+              <option value="work">Work</option>
+              <option value="school">School</option>
+              <option value="personal">Personal</option>
+              <option value="health">Health</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
 
-      const displayTasks = document.querySelector(".display-tasks");
+          <div class="form-group">
+            <label for="due-date">Due Date:</label>
+            <input type="date" id="due-date" name="due-date" />
+          </div>
 
-      const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+          <div class="form-group">
+            <label for="task-status">Initial Status</label>
+            <select id="task-status">
+              <option value="progress">In progress</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
+          <div class="form-group button-group">
+            <button type="submit" class="add-task">Add Task</button>
+          </div>
+        </form>
+      </section>
 
-      function saveToLocal() {
-        localStorage.setItem("tasks", JSON.stringify(tasks));
-      }
+      <section class="filters-section">
+        <h3>Filters</h3>
 
-      form.addEventListener("submit", (event) => {
-        event.preventDefault();
+        <label for="status-filter">Filter Status</label>
+        <select id="status-filter">
+          <option value="all">All</option>
+          <option value="progress">In progress</option>
+          <option value="completed">Completed</option>
+          <option value="overdue">Overdue</option>
+        </select>
 
-        if (
-          taskInput.value.trim() === "" ||
-          category.value === "" ||
-          dueDate.value == ""
-        ) {
-          alert("Please fill all the fields");
-          return;
-        }
+        <label for="category-filter">Filter by Category</label>
+        <select id="category-filter">
+          <option value="all">All</option>
+          <option value="work">Work</option>
+          <option value="school">School</option>
+          <option value="personal">Personal</option>
+          <option value="health">Health</option>
+          <option value="other">Other</option>
+        </select>
+      </section>
 
-        const task = {
-          name: taskInput.value,
-          category: category.value,
-          dueDate: dueDate.value,
-          status: taskStatus.value,
-        };
+      <section class="tasks-section">
+        <h2>Your Tasks</h2>
+        <ul id="displayTasks"></ul>
+      </section>
+    </main>
 
-        tasks.push(task);
-        saveToLocal();
-        tasksDisplay(tasks);
-        form.reset();
-      });
-
-      function tasksDisplay(list) {
-        displayTasks.innerHTML = "";
-
-        list.forEach((task) => {
-          const newTask = document.createElement("li");
-          newTask.innerHTML = `
-          <strong> ${task.name}</strong>
-          <p>Category: ${task.category}</p>
-          <p>Due Date: ${task.dueDate}</p>
-          <p>Status: ${task.status}</p>
-          `;
-          if (task.status === "progress") {
-            const completeBtn = document.createElement("button");
-            completeBtn.textContent = "Mark Complete";
-            completeBtn.addEventListener("click", () => {
-              task.status = "completed";
-              saveToLocal();
-              tasksDisplay(tasks);
-            });
-            newTask.appendChild(completeBtn);
-          }
-
-          if (task.status === "completed") {
-            const deleteBtn = document.createElement("button");
-            deleteBtn.textContent = "Delete";
-            deleteBtn.addEventListener("click", () => {
-              const taskIndex = tasks.indexOf(task);
-              tasks.splice(taskIndex, 1);
-              saveToLocal();
-              tasksDisplay(tasks);
-            });
-            newTask.appendChild(deleteBtn);
-          }
-          displayTasks.appendChild(newTask);
-        });
-      }
-
-      statusFilter.addEventListener("change", (e) => {
-        const selectedValue = e.target.value;
-        let filteredTasks = [];
-
-        if (selectedValue === "all") {
-          filteredTasks = tasks;
-        } else if (selectedValue === "progress") {
-          filteredTasks = tasks.filter((task) => {
-            return task.status === "progress";
-          });
-        } else if (selectedValue === "completed") {
-          filteredTasks = tasks.filter((task) => {
-            return task.status === "completed";
-          });
-        } else if (selectedValue === "overdue") {
-          filteredTasks = tasks.filter((task) => {
-            return (
-              task.status !== "completed" && new Date(task.dueDate) < new Date()
-            );
-          });
-        }
-
-        tasksDisplay(filteredTasks);
-      });
-
-      categoryFilter.addEventListener("change", (e) => {
-        const selectedValue = e.target.value;
-
-        let filteredTasks = [];
-
-        if (selectedValue === "all") {
-          filteredTasks = tasks;
-        } else {
-          filteredTasks = tasks.filter((task) => {
-            return task.category === selectedValue;
-          });
-        }
-        tasksDisplay(filteredTasks);
-      });
-
-      tasksDisplay(tasks);
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
