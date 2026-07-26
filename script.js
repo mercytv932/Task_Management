@@ -42,6 +42,12 @@ form.addEventListener("submit", (event) => {
 function tasksDisplay(list) {
   displayTasks.innerHTML = "";
 
+  if (list.length === 0) {
+    displayTasks.innerHTML =
+      "<p class='empty'>  📋  No tasks yet. Add your first task! </p>";
+    return;
+  }
+
   list.forEach((task) => {
     const newTask = document.createElement("li");
     newTask.innerHTML = `
