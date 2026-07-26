@@ -68,7 +68,11 @@
 
       const displayTasks = document.querySelector(".display-tasks");
 
-      const tasks = [];
+      const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+      function saveToLocal() {
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+      }
 
       form.addEventListener("submit", (event) => {
         event.preventDefault();
@@ -90,7 +94,7 @@
         };
 
         tasks.push(task);
-        console.log(tasks);
+        saveToLocal();
         tasksDisplay(tasks);
         form.reset();
       });
@@ -111,6 +115,7 @@
             completeBtn.textContent = "Mark Complete";
             completeBtn.addEventListener("click", () => {
               task.status = "completed";
+              saveToLocal();
               tasksDisplay(tasks);
             });
             newTask.appendChild(completeBtn);
@@ -122,6 +127,7 @@
             deleteBtn.addEventListener("click", () => {
               const taskIndex = tasks.indexOf(task);
               tasks.splice(taskIndex, 1);
+              saveToLocal();
               tasksDisplay(tasks);
             });
             newTask.appendChild(deleteBtn);
@@ -169,6 +175,8 @@
         }
         tasksDisplay(filteredTasks);
       });
+
+      tasksDisplay(tasks);
     </script>
   </body>
 </html>
