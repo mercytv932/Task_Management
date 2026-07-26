@@ -48,7 +48,7 @@ function tasksDisplay(list) {
           <strong> ${task.name}</strong>
           <p>Category: ${task.category}</p>
           <p>Due Date: ${task.dueDate}</p>
-          <p>Status: ${task.status}</p>
+          <p>Status: ${task.status === "completed" ? "🟢Completed" : "🟡 In Progress"}</p>
           `;
     if (task.status === "progress") {
       const completeBtn = document.createElement("button");
@@ -64,6 +64,7 @@ function tasksDisplay(list) {
     if (task.status === "completed") {
       const deleteBtn = document.createElement("button");
       deleteBtn.textContent = "Delete";
+      deleteBtn.className = "delete-btn";
       deleteBtn.addEventListener("click", () => {
         const taskIndex = tasks.indexOf(task);
         tasks.splice(taskIndex, 1);

@@ -10,12 +10,12 @@ body {
 }
 
 .page-header {
-  margin-bottom: 30px;
+  margin-bottom: 32px;
 }
 
 .page-header h1 {
-  margin: 0;
-  font-size: 2rem;
+  margin-bottom: 8px;
+  font-size: 2.2rem;
   color: #161616;
 }
 
@@ -46,6 +46,11 @@ body {
 .tasks-section h2 {
   margin-top: 0;
   color: #161616;
+}
+
+.tasks-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
 }
 
 form {
@@ -97,6 +102,19 @@ button:hover {
   transform: translateY((-1px));
 }
 
+.delete-btn {
+  border: none;
+  background-color: #dc2626;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+  height: 44px;
+  min-width: 140px;
+}
+.delete-btn:hover {
+  background-color: #b91c1c;
+}
+
 .filters-section {
   display: flex;
   flex-wrap: wrap;
@@ -111,7 +129,7 @@ button:hover {
 }
 
 #displayTasks li {
-  padding: 20px;
+  padding: 24px;
   margin-bottom: 16px;
   border: 1px solid #dbe1e8;
   border-left: 5px solid #1769ff;
@@ -123,6 +141,12 @@ button:hover {
 #displayTasks li:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba (0, 0, 0, 0.08);
+}
+
+#displayTasks strong {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
 }
 
 #displayTasks p {
