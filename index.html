@@ -91,14 +91,14 @@
 
         tasks.push(task);
         console.log(tasks);
-        tasksDisplay();
+        tasksDisplay(tasks);
         form.reset();
       });
 
-      function tasksDisplay() {
+      function tasksDisplay(list) {
         displayTasks.innerHTML = "";
 
-        tasks.forEach((task) => {
+        list.forEach((task) => {
           const newTask = document.createElement("li");
           newTask.innerHTML = `
           <strong> ${task.name}</strong>
@@ -111,7 +111,7 @@
             completeBtn.textContent = "Mark Complete";
             completeBtn.addEventListener("click", () => {
               task.status = "completed";
-              tasksDisplay();
+              tasksDisplay(tasks);
             });
             newTask.appendChild(completeBtn);
           }
@@ -122,13 +122,28 @@
             deleteBtn.addEventListener("click", () => {
               const taskIndex = tasks.indexOf(task);
               tasks.splice(taskIndex, 1);
-              tasksDisplay();
+              tasksDisplay(tasks);
             });
             newTask.appendChild(deleteBtn);
           }
           displayTasks.appendChild(newTask);
         });
       }
+
+      statusFilter.addEventListener("change", (e) => {
+        const selectedValue = e.target.value;
+        let filteredTasks = [];
+
+        if (selectedValue === "all") {
+          filteredTasks = tasks;
+        } else {
+          filteredTasks = tasks.filter((task) => {
+            return task.status === selectedValue;
+          });
+        }
+
+        tasksDisplay(filteredTasks);
+      });
     </script>
   </body>
 </html>
