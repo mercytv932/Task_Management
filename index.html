@@ -138,10 +138,26 @@
           filteredTasks = tasks;
         } else {
           filteredTasks = tasks.filter((task) => {
-            return task.status === selectedValue;
+            return task.category === selectedValue;
           });
+          tasksDisplay(tasks);
         }
 
+        tasksDisplay(filteredTasks);
+      });
+
+      categoryFilter.addEventListener("change", (e) => {
+        const selectedValue = e.target.value;
+
+        let filteredTasks = [];
+
+        if (selectedValue === "all") {
+          filteredTasks = tasks;
+        } else {
+          filteredTasks = tasks.filter((task) => {
+            return task.category === selectedValue;
+          });
+        }
         tasksDisplay(filteredTasks);
       });
     </script>
