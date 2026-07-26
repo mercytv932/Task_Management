@@ -136,11 +136,20 @@
 
         if (selectedValue === "all") {
           filteredTasks = tasks;
-        } else {
+        } else if (selectedValue === "progress") {
           filteredTasks = tasks.filter((task) => {
-            return task.category === selectedValue;
+            return task.status === "progress";
           });
-          tasksDisplay(tasks);
+        } else if (selectedValue === "completed") {
+          filteredTasks = tasks.filter((task) => {
+            return task.status === "completed";
+          });
+        } else if (selectedValue === "overdue") {
+          filteredTasks = tasks.filter((task) => {
+            return (
+              task.status !== "completed" && new Date(task.dueDate) < new Date()
+            );
+          });
         }
 
         tasksDisplay(filteredTasks);
