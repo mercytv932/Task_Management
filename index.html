@@ -115,6 +115,17 @@
             });
             newTask.appendChild(completeBtn);
           }
+
+          if (task.status === "completed") {
+            const deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "Delete";
+            deleteBtn.addEventListener("click", () => {
+              const taskIndex = tasks.indexOf(task);
+              tasks.splice(taskIndex, 1);
+              tasksDisplay();
+            });
+            newTask.appendChild(deleteBtn);
+          }
           displayTasks.appendChild(newTask);
         });
       }
